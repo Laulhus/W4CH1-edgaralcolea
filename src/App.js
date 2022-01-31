@@ -1,18 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-import Button from "./Components/Button/Button";
-import Gentleman from "./Components/Gentleman/Gentleman";
-import Info from "./Components/Info/Info";
+import Button from "./components/Button/Button";
+import Gentleman from "./components/Gentleman/Gentleman";
+import Info from "./components/Info/Info";
 import gentlemen from "./gentlemen";
 
 function App() {
   const [number, setNumber] = useState(0);
-
-  const selectAll = () => {
-    for (let gentleman of gentlemen) {
-      gentleman.selected = true;
-    }
-  };
 
   return (
     <div className="container">
