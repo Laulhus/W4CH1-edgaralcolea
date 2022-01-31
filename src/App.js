@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Button from "./Components/Button/Button";
+import Gentleman from "./Components/Gentleman/Gentleman";
+import Info from "./Components/Info/Info";
+import gentlemen from "./gentlemen";
 
 function App() {
+  const [number, setNumber] = useState(0);
+
+  const selectAll = () => {
+    for (let gentleman of gentlemen) {
+      gentleman.selected = true;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="container">
+      <header className="main-header">
+        <h1 className="main-title">The pointing gentlemen</h1>
       </header>
+      <section className="controls">
+        <Info selectedNumber={number} />
+        <Button actionOnClick={selectAll} />
+      </section>
+      <main className="main">
+        <ul className="gentlemen">
+          {gentlemen.map((gentleman) => (
+            <Gentleman {...gentleman} />
+          ))}
+        </ul>
+      </main>
     </div>
   );
 }
