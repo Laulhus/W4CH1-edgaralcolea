@@ -21,7 +21,7 @@ function App() {
       </header>
       <section className="controls">
         <Info selectedNumber={number} />
-        <Button actionOnClick={selectAll} />
+        <Button actionOnClick={setNumber(gentlemen.length)} />
       </section>
       <main className="main">
         <ul className="gentlemen">
